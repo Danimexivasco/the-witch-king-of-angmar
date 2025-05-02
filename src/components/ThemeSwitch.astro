@@ -1,0 +1,169 @@
+---
+import { Image } from "astro:assets";
+import orc from "../assets/images/orc.webp";
+import gandalf from "../assets/images/gandalf.webp";
+import gollum from "../assets/images/gollum.webp";
+import { ChevronLeft } from 'lucide-astro'
+---
+
+<div class="theme-switch light-pulse">
+  <div class="trigger">
+    <ChevronLeft class="pulse" size={30} />
+  </div>
+  <button id="light" title="Gandalf Theme"><Image src={gandalf} alt={'gandalf'}  class="icon"/></button>
+  <button id="dark" title="Mordor Theme"><Image src={orc} alt={'orc head'}  class="icon"/></button>
+  <button id="morgul" title="Morgul Theme"><Image src={gollum} alt={'gollum'}  class="icon"/></button>
+</div>
+
+<style>
+  .theme-switch {
+    background-color: var(--green);
+    position: fixed;
+    display: flex;
+    gap: .5rem;
+     
+    top: 2rem;
+    right: -128px;
+    opacity: 0.7;
+    padding: .5rem 1rem;
+    z-index: 999;
+    transition: all .2s ease;
+    box-shadow: 0px 0px 10px 0px var(--green);
+
+    * {
+      cursor: pointer;
+     }
+
+    .trigger {
+      background-color: var(--green);
+      width: 30px;
+      display: grid;
+      place-content: center;
+      z-index: 3;
+      transition: all .2s ease;
+    }
+
+    &.visible {
+      right: 0;
+      opacity: 1;
+      .trigger {
+        transform: rotate(180deg);
+      }
+    }
+    @media screen and (min-width: 768px) {
+      top: 5rem;
+      right: -182px; 
+      opacity: 1;
+    }
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: filter .2s ease;
+
+    &:hover {
+      filter: invert(1);
+    }
+
+    &.active {
+      filter: invert(1);
+    }
+
+    .icon {
+      width: 30px;
+      height: 30px;
+      aspect-ratio: 1;
+
+      @media screen and (min-width: 768px) {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+  .pulse {
+    animation: 3s pulseAnimation ease infinite;
+  }
+
+  @keyframes pulseAnimation {
+    0% {
+      transform: translateX(0px);
+    }
+    50% {
+      transform: translateX(-5px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+
+  .light-pulse {
+    animation: 3s lightPulseAnimation ease infinite;
+  }
+
+  @keyframes lightPulseAnimation {
+    0% {
+      box-shadow: 0px 0px 10px 0px var(--green);
+    }
+    50% {
+      box-shadow: -5px 0px 20px 0px var(--green);
+    }
+    100% {
+      box-shadow: 0px 0px 10px 0px var(--green);
+    }
+  }
+</style>
+
+
+<script>
+  const trigger = document.querySelector(".trigger");
+  const themeSwitch = document.querySelector(".theme-switch");
+  const themeBtns = document.querySelectorAll(".theme-switch button");
+
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme) {
+    setTheme(savedTheme);
+  }
+
+  handleActiveTheme();
+
+  themeBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const target = e.currentTarget as HTMLElement;
+      const theme = target.id;
+
+      themeBtns.forEach((btn) => {
+        if (btn !== target) {
+          btn.classList.remove("active");
+        }
+      });
+
+      target.classList.add("active");
+
+      setTheme(theme);
+    });
+  })
+
+  trigger?.addEventListener("click", () => {
+    themeSwitch?.classList.toggle("visible");
+  })
+
+  function setTheme(theme: string) {
+    document.documentElement.className = `${theme}`;
+    localStorage.setItem("theme", theme);
+  }
+
+  function handleActiveTheme() {
+    const activeTheme = savedTheme ?? "light";
+
+    themeBtns.forEach((btn) => {
+      if (btn.id === activeTheme) {
+        btn.classList.add("active");
+      }
+    });
+  }
+</script>
