@@ -1,0 +1,437 @@
+@font-face {
+  font-family: 'Ringbearer';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/ringbearer/Ringbearer.woff2') format('woff2');
+}
+
+:root {
+  --green: #3e8f5f;
+  --black: #000000;
+  --gray: #cbcbca;
+  --dark-gray: #313030;
+  --white: #ffffff;
+  --black50: #00000050;
+}
+
+* {
+  scrollbar-color: var(--green) var(--black);
+  scrollbar-width: thin;
+}
+
+html {
+  max-width: 100vw;
+  --text: var(--black);
+  --shadow: var(--green);
+  --bg: var(--gray);
+
+  &.dark {
+    --text: var(--white);
+    --shadow: var(--black);
+    --bg: var(--dark-gray);
+  }
+
+  &.morgul {
+    --text: var(--white);
+    --shadow: var(--black);
+    --bg: var(--black);
+  }
+}
+
+body {
+  font-family: "IM Fell English";
+  background-color: var(--bg);
+  color: var(--text);
+  width: min(1280px, 90%);
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.morgul body {
+  background: linear-gradient(90deg, var(--black) 20%, var(--green), var(--black) 80%);
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+
+  text-align: center;
+
+  h1 {
+    position: relative;
+    z-index: 99;
+    margin-bottom: 2rem;
+  }
+
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-top: 9rem;
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: "Ringbearer";
+  letter-spacing: .5rem;
+  filter: drop-shadow(.3rem .1rem .3rem var(--shadow));
+}
+
+h1,h2 {
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(3rem, 5vw + 1rem, 6rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw + 1rem, 4rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw + 1rem, 2rem);
+}
+
+p {
+  font-size: clamp(.3rem, 1.5vw + 1rem, 1.5rem);
+  display: block;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 75%;
+    aspect-ratio: video;
+    mask-image: radial-gradient(circle, black 20%, transparent 85%);
+    @media screen and (max-width: 768px) {
+      aspect-ratio: 1;
+      mask-image: linear-gradient(black, transparent);
+    }
+  }
+  .helmet {
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: contain;
+    height: fit-content;
+    width: clamp(250px, 40vw, 444px);
+    z-index: 2;
+    filter: drop-shadow(0 0 .8rem var(--black));
+  }
+  
+}
+
+.wheel-container {
+  display: grid;
+  place-items: center;
+  position: relative;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  @media screen and (min-width: 768px) {
+    margin-top: 8rem;
+  }
+}
+
+.wheel {
+  display: block;
+  margin: 0 auto;
+  width: clamp(230px, 30vw, 444px);
+  object-fit: contain;
+  height: fit-content;
+  filter: drop-shadow(.5rem 0.5rem 0.2rem var(--black50));
+  padding: 1rem;
+  z-index: 1;
+}
+
+.wire-container {
+  width: clamp(250px, 34vw, 500px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+
+  .wire-inner-container {
+    position: relative;
+    height: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .wire {
+    width: 100%;
+    object-fit: contain;
+    height: fit-content;
+    filter: drop-shadow(.5rem 0.5rem 0.2rem var(--black50));
+    position: absolute;
+    top: 50%;
+
+    &:nth-of-type(1) {
+      transform: rotate(35deg) translateX(-30%) translateY(-50%);
+    }
+    &:nth-of-type(2) {
+      transform: rotate(-35deg) translateX(30%) translateY(-50%);
+    }
+  }
+}
+
+.mask-fade-x {
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.introduction-headline {
+  margin-bottom: 6rem;
+}
+
+.text-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  margin-bottom: 2rem;
+
+  img {
+    max-width: 100%;
+    object-fit: contain;
+    height: fit-content;
+    filter: drop-shadow(.2rem .5rem 0.2rem var(--black50));
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+
+    &.inverted {
+      flex-direction: row-reverse;
+    }
+
+    img {
+      max-width: 40%;
+    }
+  }
+}
+
+.blur-section {
+  font-size: clamp(3rem, 8vw + 1rem, 8rem);
+  text-align: center;
+  margin: 4rem 0 18rem 0;
+  pointer-events: none;
+  user-select: none;
+
+  @media screen and (min-width: 768px) {
+    margin: 4rem 0 15rem 0;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.eowin-phrase {
+  margin-top: 4rem;
+}
+
+.image-with-blur-bg {
+  display: grid;
+  place-content: center;
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    margin-top: 2rem;
+  }
+
+  .bg-effect {
+    position: absolute;
+    transform: scale(1.08);
+    opacity: 0.7;
+    filter: blur(24px);
+    z-index: -1;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 60%;
+  }
+}
+
+.witchking-legacy {
+  display: grid;
+  gap: 2rem;
+  @media screen and (min-width: 768px) {
+    padding: 4rem 2rem;
+  }
+}
+
+.legacy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  column-gap: 6rem;
+  row-gap: 1rem;
+  margin: 0 auto;
+}
+
+.legacy-item {
+  display: grid;
+  border-radius: 0.5rem;
+  text-align: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    mask-image: linear-gradient(black 75%, transparent);
+    transform: translateY(1rem);
+  }
+}
+
+footer {
+  text-align: center;
+  display: grid;
+  margin-bottom: 3rem;
+  p {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0;
+  }
+  a {
+    font-family: "Ringbearer";
+    font-size: 2rem;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    text-decoration: none;
+    color: transparent;
+    background: linear-gradient(115deg, var(--green), var(--black));
+    background-clip: text;
+    background-size: 200% auto;
+    animation: wave 1.5s linear infinite alternate;
+  }
+}
+
+.dark footer a {
+  background: linear-gradient(115deg, var(--gray), var(--green));
+  background-clip: text;
+  background-size: 200% auto;
+}
+
+.morgul footer a {
+  background: linear-gradient(115deg, var(--gray), var(--black));
+  background-clip: text;
+  background-size: 200% auto;
+}
+
+
+
+@keyframes wave {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: 100% center;
+  }
+}
+
+
+
+.autoRotate {
+  animation: autoRotateAnimation;
+  animation-timeline: view();
+}
+
+@keyframes autoRotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.autoShow {
+  animation: autoShowAnimation both;
+  animation-timeline: view(70% 5%);
+}
+
+@keyframes autoShowAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(200px) scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+
+.appear {
+  animation: 3s appearAnimation ease;
+}
+
+
+@keyframes appearAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.appearDissapear {
+  animation: appearDissapearAnimation both;
+  animation-timeline: view();
+}
+
+
+@keyframes appearDissapearAnimation {
+  0% {
+    opacity: 0;
+    filter: blur(40px);
+  }
+  50%, 51% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(40px);
+  }
+}
+
+.autoBlur {
+  animation: autoBlur both;
+  animation-timeline: view();
+}
+
+@keyframes autoBlur {
+  0% {
+    filter: blur(40px);
+  }
+  50%, 51% {
+    filter: blur(0);
+  }
+  100% {
+    filter: blur(40px);
+  }
+}
