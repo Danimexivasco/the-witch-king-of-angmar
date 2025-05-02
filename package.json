@@ -9,6 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.7.9"
+    "@fontsource/im-fell-english": "^5.2.5",
+    "astro": "^5.7.9",
+    "lucide-astro": "^0.503.0",
+    "sharp": "^0.34.1"
   }
 }
