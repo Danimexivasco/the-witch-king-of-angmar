@@ -9,9 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/preact": "^4.0.11",
     "@fontsource/im-fell-english": "^5.2.5",
     "astro": "^5.7.9",
     "lucide-astro": "^0.503.0",
+    "preact": "^10.26.6",
     "sharp": "^0.34.1"
   }
 }
