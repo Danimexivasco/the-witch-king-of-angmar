@@ -1,33 +1,17 @@
-# Astro Starter Kit: Minimal
+# 🔥 The Witch King of Angmar 🔥
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+![The Witch King of Angmar](./src/assets/images/nazgul.webp)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+[The Witch King of Angmar](the-witch-king-of-angmar.vercel.app) is a website made with [Astro](https://astro.build) and [Preact](https://preactjs.com/) (just for a client side trick for a mask-image with gif animation).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+A key feature of the project is the integration of CSS Scroll-Linked Animations using the experimental animation-timeline property, enabling smooth, timeline-driven animations tied to scroll position — such as rotating cursed wheels, masked wire overlays, and depth-perspective transitions. The layout uses modern CSS Grid and flexbox, along with visual polish using filters, masking, and layering.
 
-## 🚀 Project Structure
+This project demonstrates a deep dive into cutting-edge CSS capabilities, focusing on performance, semantic structure, and immersive interaction — all without a single line of JavaScript (the only JS used is to handle and store the preferred theme).
 
-Inside of your Astro project, you'll see the following folders and files:
+> [!IMPORTANT]
+> The project relies on experimental CSS animation-timeline feature, which is not supported in all browsers. I also noticed that the behaviour in mobile devices is not the same as in desktop because of the hide/show functionality of the address bar, so for the best experience, please use a desktop device
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 
@@ -42,6 +26,3 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
