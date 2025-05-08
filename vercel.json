@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "/shadow_overlay.gif",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    }
+  ]
+}

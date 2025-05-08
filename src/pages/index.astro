@@ -3,8 +3,11 @@ import { Image } from 'astro:assets';
 import "@fontsource/im-fell-english";
 import ThemeSwitch from '../components/ThemeSwitch.astro';
 import '../styles/global.css';
+
+import {MaskedImage} from '../components/MaskedImage.tsx';
+import shadowOverlay from '../assets/images/shadow_overlay.gif';
 import nazgul from "../assets/images/nazgul.webp";
-import helmet from "../assets/images/witch_king_helmet.png";
+import helmet from "../assets/images/witch_king_helmet.webp";
 import sword from "../assets/images/witch_king_sword.png";
 import mace from "../assets/images/witch_king_mace.png";
 import wheel from "../assets/images/mordor_wheel_no_shadow.webp";
@@ -13,6 +16,16 @@ import kings from "../assets/images/men_kings.webp";
 import witchKingDeath from "../assets/images/witch_king_death.webp";
 import kingOfAngmar from "../assets/images/king_of_angmar.webp";
 import wire from "../assets/images/wire.webp";
+
+import witchKing1 from "../assets/images/gallery/witch_king_1.webp";
+import witchKing2 from "../assets/images/gallery/witch_king_2.webp";
+import witchKing3 from "../assets/images/gallery/witch_king_3.webp";
+import witchKing4 from "../assets/images/gallery/witch_king_4.webp";
+import witchKing5 from "../assets/images/gallery/witch_king_5.webp";
+import witchKing6 from "../assets/images/gallery/witch_king_6.webp";
+import witchKing8 from "../assets/images/gallery/witch_king_8.webp";
+import witchKing9 from "../assets/images/gallery/witch_king_9.webp";
+import witchKing10 from "../assets/images/gallery/witch_king_10.webp";
 ---
 
 <html lang="en">
@@ -27,96 +40,231 @@ import wire from "../assets/images/wire.webp";
 	
 	<body>
 		<ThemeSwitch />
-		<div class="header">
-			<h1>The Witch King </h1>
+
+		<div class="hero appearShadow">
+			<MaskedImage src={nazgul.src} maskSrc={shadowOverlay.src} alt="nazgul" className="nazgul-hero" client:load/>
+			<h1 class="appear">The Witch King </h1>
+			<Image src={helmet} alt={'witch king helmet'} class="helmet appearWithScale" loading="eager" fetchpriority="high"/>
+			<h2 class="appear">oF Angmar</h2>
 		</div>
-		<div class="hero">
-			<Image src={nazgul} alt={'nazgul'} class="hero-img" loading="eager" />
-			<Image src={helmet} alt={'witch king helmet'} class="helmet appearWithTranslation"/>
-		</div>
-		<div class="wheel-container appear">
-			<Image src={wheel} alt={'mordor wheel'} class="wheel autoRotate"/>
-			<div class="wire-container">
-				<div class="wire-inner-container">
-					<Image src={wire} alt={'rusted wire'} class="wire mask-fade-x"/>
-					<Image src={wire} alt={'rusted wire'} class="wire mask-fade-x"/>
+
+		<div class="container">
+			<div class="wheel-container appear">
+				<Image src={wheel} alt={'mordor wheel'} class="wheel autoRotate" />
+				<div class="wire-container">
+					<div class="wire-inner-container">
+						<Image src={wire} alt={'rusted wire'} class="wire mask-fade-x"/>
+						<Image src={wire} alt={'rusted wire'} class="wire mask-fade-x"/>
+					</div>
 				</div>
 			</div>
-		</div>
-
-		<h2 class="autoShow introduction-headline">oF Angmar</h2>
-		<div class="text-media autoShow">
-			<Image src={sword} alt={'witch king sword'}/>
-			<div>
-				<h3>Sword</h3>
-				<p>The sword of the Witch-king of Angmar is not merely a weapon—it is a symbol of malice, corruption, and fear. Forged in the dark furnaces of Mordor, it carries an aura of cold, unnatural power that chills even the bravest warrior. Its jagged, cruel edges are designed not just to wound, but to curse those it strikes, weakening their will and clouding their senses. Unlike the elegant blades of Elves or the sturdy craftsmanship of Dwarves, the Witch-king’s sword is a brutal extension of his wrath. In battle, he wields it with terrifying precision, carving through armor and hope alike. The blade is often shrouded in a pale, spectral mist—echoes of the magic that sustains his undead form. To face it is to feel the weight of ancient evil pressing down, reminding all that the Dark Lord’s reach extends beyond the grave.
-				</p>
-			</div>
-		</div>
-		<div class="text-media inverted autoShow">
-			<Image src={mace} alt={'witch king mace'}/>
-			<div>
-				<h3>Mace</h3>
-				<p>When the sword no longer suffices, the Witch-king turns to his devastating mace—an iron monstrosity that exemplifies brute strength and merciless domination. This massive, spiked weapon is wielded with terrifying ease by the Nazgûl lord, its every swing capable of shattering shields, bones, and morale in equal measure. It is not a subtle tool; it is a declaration of overwhelming force, meant to obliterate rather than duel. The clang of it crashing into stone or steel reverberates like a death knell, an announcement that resistance is futile. In the Battle of Pelennor Fields, the Witch-king's mace became infamous for its destruction, smashing through ranks of Gondorian soldiers as if they were paper. Each strike carries the weight of centuries of malice and undeath, powered by sorcery and hate. Few can stand before it—and fewer still live to tell the tale.
-				</p>
-			</div>
-		</div>
-		<div class="text-media autoShow">
-			<Image src={helmet} alt={'witch king helmet'}/>
-			<div>
-				<h3>Helmet</h3>
-				<p>Perhaps the most iconic piece of the Witch-king’s appearance is his menacing helmet—a twisted crown of black steel, forged into a terrifying silhouette that both conceals and declares. With jagged, spike-like protrusions rising from its crown, it serves as a chilling symbol of his royalty and his ruin. The helmet has no faceplate, for the Witch-king has no face to show—only darkness fills the void where eyes should be, a void that seems to stare back at anyone who dares to look. This absence is more frightening than any grotesque visage; it speaks of a soul lost, of a being hollowed out by Sauron’s will. Its edges are worn from countless battles, and yet it never dulls in presence. It is more than armor—it is an extension of the Witch-king’s legend, a crown of terror that lingers in the minds of all who glimpse it on the battlefield.
-				</p>
-			</div>
-		</div>
-
-		<section class="witchking-legacy">
-			<h2 class="autoShow">Legacy</h2>
-			<div class="legacy-grid">
-    
-				<div class="legacy-item autoShow">
-					<Image src={kings} alt={'nine kings of men'} />
-					<h3>From Mortal to Wraith</h3>
-					<p>
-						Once a mortal king, the Witch-king fell to the power of the Nine Rings and rose as the Lord of the Nazgûl. His transformation marked the beginning of an age of terror under Sauron’s dominion.
-					</p>
+			<section>
+				<h2 class="introduction-headline autoShow">Weapons</h2>
+				<div class="text-media autoShow">
+					<Image src={sword} alt={'witch king sword'}/>
+					<div>
+						<h3>Sword</h3>
+						<p>The sword of the Witch-king of Angmar is not merely a weapon—it is a symbol of malice, corruption, and fear. Forged in the dark furnaces of Mordor, it carries an aura of cold, unnatural power that chills even the bravest warrior. Its jagged, cruel edges are designed not just to wound, but to curse those it strikes, weakening their will and clouding their senses. Unlike the elegant blades of Elves or the sturdy craftsmanship of Dwarves, the Witch-king’s sword is a brutal extension of his wrath. In battle, he wields it with terrifying precision, carving through armor and hope alike. The blade is often shrouded in a pale, spectral mist—echoes of the magic that sustains his undead form. To face it is to feel the weight of ancient evil pressing down, reminding all that the Dark Lord’s reach extends beyond the grave.
+						</p>
+					</div>
 				</div>
-		
-				<div class="legacy-item autoShow">
-					<Image src={kingOfAngmar} alt={'witch king as a wraith'}/>
-					<h3>The Might of Angmar</h3>
-					<p>
-						As ruler of Angmar, he commanded vast legions and waged ruthless war upon the kingdoms of Men. His mastery of fear and warfare turned hope into ash across Middle-earth.
-					</p>
+				<div class="text-media inverted autoShow">
+					<Image src={mace} alt={'witch king mace'}/>
+					<div>
+						<h3>Mace</h3>
+						<p>When the sword no longer suffices, the Witch-king turns to his devastating mace—an iron monstrosity that exemplifies brute strength and merciless domination. This massive, spiked weapon is wielded with terrifying ease by the Nazgûl lord, its every swing capable of shattering shields, bones, and morale in equal measure. It is not a subtle tool; it is a declaration of overwhelming force, meant to obliterate rather than duel. The clang of it crashing into stone or steel reverberates like a death knell, an announcement that resistance is futile. In the Battle of Pelennor Fields, the Witch-king's mace became infamous for its destruction, smashing through ranks of Gondorian soldiers as if they were paper. Each strike carries the weight of centuries of malice and undeath, powered by sorcery and hate. Few can stand before it—and fewer still live to tell the tale.
+						</p>
+					</div>
 				</div>
-		
-				<div class="legacy-item autoShow">
-					<Image src={witchKingDeath} alt={'witch king death'}/>
-					<h3>"No Man Can Kill Me"</h3>
-					<p>
-						Destined to fall by no man’s hand, his doom was sealed by Éowyn’s blade. His fall fulfilled prophecy and shattered the illusion of invincibility surrounding the Nazgûl.
-					</p>
+				<div class="text-media autoShow">
+					<Image src={helmet} alt={'witch king helmet'}/>
+					<div>
+						<h3>Helmet</h3>
+						<p>Perhaps the most iconic piece of the Witch-king’s appearance is his menacing helmet—a twisted crown of black steel, forged into a terrifying silhouette that both conceals and declares. With jagged, spike-like protrusions rising from its crown, it serves as a chilling symbol of his royalty and his ruin. The helmet has no faceplate, for the Witch-king has no face to show—only darkness fills the void where eyes should be, a void that seems to stare back at anyone who dares to look. This absence is more frightening than any grotesque visage; it speaks of a soul lost, of a being hollowed out by Sauron’s will. Its edges are worn from countless battles, and yet it never dulls in presence. It is more than armor—it is an extension of the Witch-king’s legend, a crown of terror that lingers in the minds of all who glimpse it on the battlefield.
+						</p>
+					</div>
 				</div>
-		
+			</section>
+	
+			<section class="witchking-legacy">
+				<h2 class="autoShow">Legacy</h2>
+				<div class="legacy-grid">
+			
+					<div class="legacy-item autoShow">
+						<Image src={kings} alt={'nine kings of men'} />
+						<h3>From Mortal to Wraith</h3>
+						<p>
+							Once a mortal king, the Witch-king fell to the power of the Nine Rings and rose as the Lord of the Nazgûl. His transformation marked the beginning of an age of terror under Sauron’s dominion.
+						</p>
+					</div>
+			
+					<div class="legacy-item autoShow">
+						<Image src={kingOfAngmar} alt={'witch king as a wraith'}/>
+						<h3>The Might of Angmar</h3>
+						<p>
+							As ruler of Angmar, he commanded vast legions and waged ruthless war upon the kingdoms of Men. His mastery of fear and warfare turned hope into ash across Middle-earth.
+						</p>
+					</div>
+			
+					<div class="legacy-item autoShow">
+						<Image src={witchKingDeath} alt={'witch king death'}/>
+						<h3>"No Man Can Kill Me"</h3>
+						<p>
+							Destined to fall by no man’s hand, his doom was sealed by Éowyn’s blade. His fall fulfilled prophecy and shattered the illusion of invincibility surrounding the Nazgûl.
+						</p>
+					</div>
+			
+				</div>
+			</section>
+	
+			<section class="blur-section">
+				<div class="autoBlur uppercase">You fool.</div>
+				<div class="autoBlur uppercase">No <i>man</i></div>
+				<div class="autoBlur uppercase">can kill me.</div>
+				<div class="autoBlur uppercase">Die now...</div>
+				<div class="autoBlur uppercase eowin-phrase">I'm no man!</div>
+				<div class="appearDissapear image-with-blur-bg">
+					<Image src={eowinKillWitchKing} alt={'eowin killing the witch king background'} class="bg-effect"/>
+					<Image src={eowinKillWitchKing} alt={'eowin killing the witch king'}/>
+				</div>
+			</section>
+	
+			<div class="image-container">
+				<Image src={kingOfAngmar} alt={'witch king as a wraith'} class="autoShow"/>
+				<Image src={witchKing8} alt={'nine nazguls'} class="autoShow"/>
+				<Image src={witchKing2} alt={'witch king with no face'} class="autoShow"/>
+				
+				<Image src={witchKing6} alt={'angmar in darkness'} class="autoShow"/>
+				<Image src={witchKing1} alt={'witch king with weapons'} class="autoShow"/>
+				<Image src={witchKing4} alt={'witch king with fell beast'} class="autoShow"/>
+				<Image src={witchKing5} alt={'angmar with snow'} class="autoShow"/>
+				
+				<Image src={witchKing3} alt={'witch king with nazguls'} class="autoShow"/>
+				<Image src={witchKing9} alt={'minas morgul'} class="autoShow"/>
+				<Image src={witchKing10} alt={'nazgul and frodo'} class="autoShow"/>
 			</div>
-		</section>
+	
+			<footer>
+				<p>Done by:</p>
+				<a href="https://dcano.dev" target="_blank">@danimexivasco</a>
+			</footer>
+		</div>
 
-		<section class="blur-section">
-			<div class="autoBlur uppercase">You fool.</div>
-			<div class="autoBlur uppercase">No <i>man</i></div>
-			<div class="autoBlur uppercase">can kill me.</div>
-			<div class="autoBlur uppercase">Die now...</div>
-			<div class="autoBlur uppercase eowin-phrase">I'm no man!</div>
-			<div class="appearDissapear image-with-blur-bg">
-				<Image src={eowinKillWitchKing} alt={'eowin killing the witch king background'} class="bg-effect"/>
-				<Image src={eowinKillWitchKing} alt={'eowin killing the witch king'}/>
-			</div>
-		</section>
+		<script>
+			let viewer: HTMLDivElement | null = null;
+			let currentIndex = 0;
+			let imageElements: HTMLImageElement[] = [];
 
-		<footer>
-			<p>Done by:</p>
-			<a href="https://dcano.dev" target="_blank">@danimexivasco</a>
-		</footer>
+			function createSVGIcon(isLeft: boolean): SVGElement {
+				const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+				svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+				svg.setAttribute("stroke-width", "2");
+				svg.setAttribute("width", "30");
+				svg.setAttribute("height", "30");
+				svg.setAttribute("stroke", "currentColor");
+				svg.setAttribute("stroke-linecap", "round");
+				svg.setAttribute("stroke-linejoin", "round");
+				svg.setAttribute("fill", "none");
+				svg.setAttribute("viewBox", "0 0 24 24");
+				svg.classList.add("lucide", isLeft ? "lucide-chevron-left" : "lucide-chevron-right", "pulse");
+				
+				const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+				path.setAttribute("d", isLeft ? "m15 18-6-6 6-6" : "m9 18 6-6-6-6");
+				
+				svg.appendChild(path);
+				
+				return svg;
+			}
 
+			function showImage(index: number) {
+				if (!viewer) return;
+
+				const overlay = viewer.querySelector('.overlay') as HTMLDivElement;
+				const img = overlay.querySelector('img') as HTMLImageElement;
+
+				const newImage = imageElements[index];
+				img.src = newImage.src;
+				img.alt = newImage.alt;
+			}
+
+			function closeViewer() {
+				document.startViewTransition(() => {
+					viewer?.remove();
+					viewer = null;
+					currentIndex = 0;
+				});
+			}
+
+			function navigate(direction: number) {
+				currentIndex = (currentIndex + direction + imageElements.length) % imageElements.length;
+				showImage(currentIndex);
+			}
+
+			document.addEventListener('DOMContentLoaded', () => {
+				imageElements = Array.from(document.querySelectorAll<HTMLImageElement>('.image-container img'));
+
+				imageElements.forEach((img, i) => {
+					img.addEventListener('click', () => {
+						if (viewer) return;
+
+						currentIndex = i;
+
+							viewer = document.createElement('div');
+							viewer.className = 'image-viewer fastAppear';
+
+							const overlay = document.createElement('div');
+							overlay.className = 'overlay';
+							overlay.tabIndex = 0;
+
+							const fullImage = document.createElement('img');
+							fullImage.src = img.src;
+							fullImage.alt = img.alt;
+
+							const closeButton = document.createElement('button');
+							closeButton.className = 'close-button';
+							closeButton.setAttribute('aria-label', 'Close');
+							closeButton.textContent = '×';
+
+							const prevButton = document.createElement('button');
+							prevButton.className = 'nav-button prev';
+							prevButton.setAttribute('aria-label', 'Previous image');
+							const leftIcon = createSVGIcon(true);
+        			prevButton.appendChild(leftIcon);
+
+							const nextButton = document.createElement('button');
+							nextButton.className = 'nav-button next';
+							nextButton.setAttribute('aria-label', 'Next image');
+							const rightIcon = createSVGIcon(false);
+        			nextButton.appendChild(rightIcon);
+
+							overlay.appendChild(fullImage);
+							overlay.appendChild(closeButton);
+							overlay.appendChild(prevButton);
+							overlay.appendChild(nextButton);
+							viewer.appendChild(overlay);
+							document.body.appendChild(viewer);
+
+							closeButton.addEventListener('click', closeViewer);
+							viewer.addEventListener('click', closeViewer);
+							overlay.addEventListener('click', (e) => e.stopPropagation());
+							overlay.addEventListener('keydown', (e: KeyboardEvent) => {
+								if (e.key === 'Escape') closeViewer();
+								if (e.key === 'ArrowRight') navigate(1);
+								if (e.key === 'ArrowLeft') navigate(-1);
+							});
+							prevButton.addEventListener('click', (e) => {
+								e.stopPropagation();
+								navigate(-1);
+							});
+							nextButton.addEventListener('click', (e) => {
+								e.stopPropagation();
+								navigate(1);
+							});
+
+							overlay.focus();
+					});
+				});
+			});
+		</script>
 	</body>
 </html>
