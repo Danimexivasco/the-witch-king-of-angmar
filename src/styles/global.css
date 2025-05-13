@@ -115,6 +115,8 @@ p {
     margin: 0 auto;
     width: clamp(250px, 40vw, 500px);
     filter: drop-shadow(0 0 1rem var(--black));
+    aspect-ratio: 412 / 745;
+    max-height: 75vh;
   }
 }
 
