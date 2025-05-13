@@ -9,7 +9,7 @@ A key feature of the project is the integration of CSS Scroll-Linked Animations 
 This project demonstrates a deep dive into cutting-edge CSS capabilities, focusing on performance, semantic structure, and immersive interaction — all without a single line of JavaScript (the only JS used is to handle and store the preferred theme).
 
 > [!IMPORTANT]
-> The project relies on experimental CSS animation-timeline feature, which is not supported in all browsers. I also noticed that the behaviour in mobile devices is not the same as in desktop because of the hide/show functionality of the address bar, so for the best experience, please use a desktop device
+> The project relies on experimental CSS [animation-timeline](https://caniuse.com/?search=animation-timeline) feature, which is not supported in all browsers. I also noticed that the behaviour in mobile devices is not the same as in desktop because of the hide/show functionality of the address bar, so for the best experience, please use a desktop device
 
 
 
