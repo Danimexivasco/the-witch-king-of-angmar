@@ -11,6 +11,9 @@ This project demonstrates a deep dive into cutting-edge CSS capabilities, focusi
 > [!IMPORTANT]
 > The project relies on experimental CSS [animation-timeline](https://caniuse.com/?search=animation-timeline) feature, which is not supported in all browsers. I also noticed that the behaviour in mobile devices is not the same as in desktop because of the hide/show functionality of the address bar, so for the best experience, please use a desktop device
 
+> [!NOTE]
+> As a latest update to the project I've added [Lenis](https://lenis.darkroom.engineering/) library for smooth scrolling.
+
 
 
 ## 🧞 Commands
